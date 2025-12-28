@@ -7,8 +7,7 @@ use GuzzleHttp\ClientInterface;
 class PdfxClient
 {
 
-	/** @var ClientInterface */
-	protected $client;
+	protected ClientInterface $client;
 
 	public function __construct(ClientInterface $client)
 	{
