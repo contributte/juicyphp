@@ -7,11 +7,9 @@ use Psr\Http\Message\ResponseInterface;
 class PdfResponse
 {
 
-	/** @var ResponseInterface */
-	protected $origin;
+	protected ResponseInterface $origin;
 
-	/** @var mixed */
-	protected $parsed;
+	protected mixed $parsed;
 
 	public function __construct(ResponseInterface $origin)
 	{
@@ -28,10 +26,7 @@ class PdfResponse
 		return $this->origin->getStatusCode();
 	}
 
-	/**
-	 * @return mixed
-	 */
-	public function getData()
+	public function getData(): mixed
 	{
 		return $this->getParsedBody();
 	}
@@ -41,10 +36,7 @@ class PdfResponse
 		file_put_contents($filename, $this->getData());
 	}
 
-	/**
-	 * @return mixed
-	 */
-	protected function getParsedBody()
+	protected function getParsedBody(): mixed
 	{
 		if ($this->parsed === null) {
 			$body = $this->origin->getBody();

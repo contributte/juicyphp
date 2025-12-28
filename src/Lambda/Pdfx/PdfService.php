@@ -8,8 +8,7 @@ use JuicyFx\Juicy\Exceptions\Logical\InvalidArgumentException;
 class PdfService
 {
 
-	/** @var ClientInterface */
-	protected $client;
+	protected ClientInterface $client;
 
 	public function __construct(ClientInterface $client)
 	{
