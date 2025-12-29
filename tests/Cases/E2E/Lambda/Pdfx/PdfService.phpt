@@ -2,8 +2,9 @@
 
 namespace Tests\Cases\E2E\Lambda\Pdfx;
 
+use Contributte\Tester\Environment;
+use Contributte\Tester\Toolkit;
 use JuicyFx\Juicy\JuicyFx;
-use Ninjify\Nunjuck\Toolkit;
 use Tester\Assert;
 
 require_once __DIR__ . '/../../../../bootstrap.php';
@@ -14,9 +15,9 @@ Toolkit::test(function (): void {
 
 	Assert::equal(200, $response->getStatusCode());
 
-	Assert::false(file_exists(TEMP_DIR . '/pdf-url.pdf'));
-	$response->save(TEMP_DIR . '/pdf-url.pdf');
-	Assert::true(file_exists(TEMP_DIR . '/pdf-url.pdf'));
+	Assert::false(file_exists(Environment::getTestDir() . '/pdf-url.pdf'));
+	$response->save(Environment::getTestDir() . '/pdf-url.pdf');
+	Assert::true(file_exists(Environment::getTestDir() . '/pdf-url.pdf'));
 });
 
 Toolkit::test(function (): void {
@@ -25,9 +26,9 @@ Toolkit::test(function (): void {
 
 	Assert::equal(200, $response->getStatusCode());
 
-	Assert::false(file_exists(TEMP_DIR . '/pdf-raw.pdf'));
-	$response->save(TEMP_DIR . '/pdf-raw.pdf');
-	Assert::true(file_exists(TEMP_DIR . '/pdf-raw.pdf'));
+	Assert::false(file_exists(Environment::getTestDir() . '/pdf-raw.pdf'));
+	$response->save(Environment::getTestDir() . '/pdf-raw.pdf');
+	Assert::true(file_exists(Environment::getTestDir() . '/pdf-raw.pdf'));
 });
 
 Toolkit::test(function (): void {
@@ -38,9 +39,9 @@ Toolkit::test(function (): void {
 
 	Assert::equal(200, $response->getStatusCode());
 
-	Assert::false(file_exists(TEMP_DIR . '/pdf-json.pdf'));
-	$response->save(TEMP_DIR . '/pdf-json.pdf');
-	Assert::true(file_exists(TEMP_DIR . '/pdf-json.pdf'));
+	Assert::false(file_exists(Environment::getTestDir() . '/pdf-json.pdf'));
+	$response->save(Environment::getTestDir() . '/pdf-json.pdf');
+	Assert::true(file_exists(Environment::getTestDir() . '/pdf-json.pdf'));
 });
 
 Toolkit::test(function (): void {
@@ -57,7 +58,7 @@ Toolkit::test(function (): void {
 
 	Assert::equal(200, $response->getStatusCode());
 
-	Assert::false(file_exists(TEMP_DIR . '/pdf-json-full.pdf'));
-	$response->save(TEMP_DIR . '/pdf-json-full.pdf');
-	Assert::true(file_exists(TEMP_DIR . '/pdf-json-full.pdf'));
+	Assert::false(file_exists(Environment::getTestDir() . '/pdf-json-full.pdf'));
+	$response->save(Environment::getTestDir() . '/pdf-json-full.pdf');
+	Assert::true(file_exists(Environment::getTestDir() . '/pdf-json-full.pdf'));
 });
