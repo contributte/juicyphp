@@ -9,7 +9,7 @@ class PdfResponse
 
 	protected ResponseInterface $origin;
 
-	protected mixed $parsed;
+	protected mixed $parsed = null;
 
 	public function __construct(ResponseInterface $origin)
 	{
